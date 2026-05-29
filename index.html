@@ -177,6 +177,16 @@
         .text-gray-light {
             color: #d1d5db;
         }
+        
+        /* Top info image styling */
+        .info-image {
+            border-radius: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-image:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -262,14 +272,26 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Image ABOVE the content -->
     <section id="about" class="py-24 px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- IMAGE DISPLAYED UPPER / ABOVE the heading -->
+            <div class="reveal mb-12">
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://i.postimg.cc/k6FD5h41/image.jpg" 
+                         alt="Баня с джакузи и зоной отдыха" 
+                         class="info-image w-full h-auto object-cover">
+                </div>
+            </div>
+            
+            <!-- Then the heading and description below -->
+            <div class="reveal text-center mb-8">
+                <span class="text-orange-400 text-sm uppercase tracking-wider font-semibold">Идеальное место для отдыха</span>
+                <h2 class="font-serif-alt text-5xl font-bold mt-4 text-white">Всё для вашего <span class="gradient-text">комфорта</span></h2>
+            </div>
+            
+            <div class="grid md:grid-cols-1 max-w-4xl mx-auto">
                 <div class="reveal">
-                    <span class="text-orange-400 text-sm uppercase tracking-wider font-semibold">Идеальное место для отдыха</span>
-                    <h2 class="font-serif-alt text-5xl font-bold mt-4 mb-6 text-white">Всё для вашего <span class="gradient-text">комфорта</span></h2>
-                    
                     <ul class="feature-list text-base leading-relaxed space-y-4">
                         <li><i class="fas fa-check-circle"></i> Производится <strong class="text-orange-300">дезинфекция перед каждым посещением!</strong></li>
                         <li><i class="fas fa-fire"></i> Просторная баня с настоящей дровяной печью — дров для растопки в избытке;</li>
@@ -280,13 +302,6 @@
                         <li><i class="fab fa-playstation"></i> PlayStation 4 с огромной библиотекой игр и двумя джойстиками — играйте сколько угодно!;</li>
                         <li><i class="fas fa-chess-board"></i> Большой выбор настольных игр для весёлой компании.</li>
                     </ul>
-                </div>
-                
-                <div class="relative reveal">
-                    <div class="glass-card rounded-3xl overflow-hidden shadow-2xl gallery-card">
-                        <img src="https://i.postimg.cc/Qtv702r3/photo-2026-05-30-00-27-50.jpg" alt="Баня интерьер с джакузи и зоной отдыха" class="gallery-img w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-5 -right-5 w-32 h-32 bg-orange-500/20 rounded-full filter blur-2xl"></div>
                 </div>
             </div>
         </div>
@@ -361,7 +376,7 @@
                 
                 <div class="flex flex-wrap gap-6 justify-center text-sm">
                     <div class="text-gray-300"><i class="fas fa-clock text-orange-400 mr-2"></i> Работаем 24/7</div>
-                    <div class="text-gray-300"><i class="fas fa-map-marker-alt text-orange-400 mr-2"></i> Минский район, 15 км от МКАД</div>
+                    <div class="text-gray-300"><i class="fas fa-map-marker-alt text-orange-400 mr-2"></i> а/г Ждановичи, ул. Высокая, всего 1 км от МКАД</div>
                     <div class="text-gray-300"><i class="fas fa-wifi text-orange-400 mr-2"></i> Бесплатный Wi-Fi</div>
                     <div class="text-gray-300"><i class="fas fa-car text-orange-400 mr-2"></i> Парковка</div>
                 </div>
