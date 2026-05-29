@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Veronica ❤️ Даёт шанс айтишнику</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .date-card {
+            max-width: 550px;
+            width: 100%;
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .story-header {
+            background: linear-gradient(105deg, #1a1a2e 0%, #16213e 100%);
+            padding: 24px 24px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .avatar-icon {
+            font-size: 64px;
+            margin-bottom: 8px;
+        }
+
+        .story-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .story-header p {
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+
+        .veronica-name {
+            background: linear-gradient(95deg, #ff6b6b, #ff8e53);
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-section {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #1e1b4b;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            background: #f8fafc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .date-time-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .date-time-group select {
+            flex: 1;
+        }
+
+        .slots-info {
+            background: #ede9fe;
+            padding: 12px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #5b21b6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(95deg, #ec489a, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            margin-bottom: 16px;
+            font-family: inherit;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.97);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
+
+        .result-message {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .result-message.error {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+
+        .result-message.show {
+            display: block;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        footer {
+            background: #f1f5f9;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .note {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="date-card">
+    <div class="story-header">
+        <div class="avatar-icon">🧑‍💻❤️👩</div>
+        <h2>Дала шанс айтишнику?</h2>
+        <div class="veronica-name">✨ Veronica ✨</div>
+        <p style="margin-top: 12px;">«Я починю всё, что угодно. А ещё — приглашаю на свидание мечты. Выбери дату, и я всё организую!»</p>
+    </div>
+
+    <div class="form-section">
+        <div class="slots-info" id="slotsInfo">
+            📅 Выбери дату, чтобы увидеть свободные слоты
+        </div>
+
+        <form id="dateForm">
+            <div class="form-group">
+                <label>💫 Твоё имя (уже Veronica, но можешь написать)</label>
+                <input type="text" id="girlName" value="Veronica" placeholder="Veronica" required>
+            </div>
+
+            <div class="form-group">
+                <label>📅 Выбери дату свидания</label>
+                <input type="date" id="datePicker" required>
+            </div>
+
+            <div class="form-group">
+                <label>⏰ Выбери время (по Москве)</label>
+                <select id="timePicker" required>
+                    <option value="">-- Выбери время --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>🎯 Чем хочешь заняться?</label>
+                <textarea id="activity" placeholder="Напиши, что тебе нравится: кофе, прогулка, кино, квест, ужин, настолки, концерт... Я всё устрою!"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>💝 Что для тебя важно на свидании?</label>
+                <textarea id="wishes" placeholder="Например: цветы, без фастфуда, чтобы было весело, сюрприз, или просто честный разговор..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>📧 Твой email (чтобы я отправил подтверждение)</label>
+                <input type="email" id="girlEmail" placeholder="veronica@example.com" required>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">💾 ЗАБРОНИРОВАТЬ ДАТУ →</button>
+        </form>
+
+        <div id="resultMsg" class="result-message"></div>
+        <div class="note">
+            🔐 После бронирования я получу уведомление на Gmail и отправлю тебе подтверждение
+        </div>
+    </div>
+    <footer>
+        ✨ Айтишник настроит сервер, купит билеты и придумает квест по твоим пожеланиям ✨
+    </footer>
+</div>
+
+<script>
+    // ====================================================
+    // НАСТРОЙКА ДЛЯ ОТПРАВКИ УВЕДОМЛЕНИЙ НА ВАШУ GMAIL
+    // ====================================================
+    // Для отправки писем используем сервис EmailJS (бесплатно, 200 писем/месяц)
+    // 1. Зарегистрируйся на https://www.emailjs.com/
+    // 2. Подтверди email
+    // 3. Создай сервис (Gmail)
+    // 4. Создай шаблон письма
+    // 5. Вставь свои ID ниже
+    
+    // ВРЕМЕННО: пока не настроен EmailJS, показываем демо-режим с копированием данных
+    // Но я дам готовую инструкцию для реальной отправки
+    
+    const USE_EMAILJS = false;  // Поставь true после регистрации на EmailJS
+    
+    // Твои данные из EmailJS (замени после регистрации)
+    const EMAILJS_SERVICE_ID = 'service_xxxxxxx';  // ID сервиса
+    const EMAILJS_TEMPLATE_ID = 'template_xxxxxx'; // ID шаблона
+    const EMAILJS_PUBLIC_KEY = 'user_xxxxxxxxxxxxx'; // Публичный ключ
+    
+    // Твоя почта для уведомлений
+    const MY_GMAIL = 'tvoja-pochta@gmail.com';  // ЗАМЕНИ НА СВОЮ GMAIL
+    
+    // Генерация временных слотов
+    function generateTimeSlots() {
+        const slots = [];
+        for (let hour = 12; hour <= 21; hour++) {
+            slots.push(`${hour}:00`);
+            if (hour !== 21) slots.push(`${hour}:30`);
+        }
+        return slots;
+    }
+    
+    const timeSelect = document.getElementById('timePicker');
+    const slots = generateTimeSlots();
+    slots.forEach(slot => {
+        const option = document.createElement('option');
+        option.value = slot;
+        option.textContent = slot;
+        timeSelect.appendChild(option);
+    });
+    
+    // Установка минимальной даты
+    const datePicker = document.getElementById('datePicker');
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    datePicker.min = tomorrow.toISOString().split('T')[0];
+    datePicker.value = tomorrow.toISOString().split('T')[0];
+    
+    const slotsInfoDiv = document.getElementById('slotsInfo');
+    
+    // Имитация свободных слотов
+    datePicker.addEventListener('change', () => {
+        const selectedDate = datePicker.value;
+        if (!selectedDate) return;
+        
+        // В демо-режиме все слоты свободны
+        const freeSlots = slots;
+        timeSelect.innerHTML = '<option value="">-- Выбери время --</option>';
+        freeSlots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            timeSelect.appendChild(option);
+        });
+        slotsInfoDiv.innerHTML = `✅ Свободные слоты на ${selectedDate}: ${freeSlots.join(', ')}`;
+    });
+    
+    // Отправка уведомления на твою Gmail через EmailJS
+    async function sendNotificationToMe(bookingData) {
+        if (!USE_EMAILJS) {
+            console.log('ДЕМО-РЕЖИМ: Данные бронирования:', bookingData);
+            return { success: true, mock: true };
+        }
+        
+        try {
+            // Загружаем EmailJS библиотеку динамически
+            await loadEmailJS();
+            
+            const templateParams = {
+                to_email: MY_GMAIL,
+                from_name: bookingData.name,
+                booking_date: bookingData.date,
+                booking_time: bookingData.time,
+                activity: bookingData.activity || 'Не указано',
+                wishes: bookingData.wishes || 'Не указано',
+                user_email: bookingData.email,
+                message: `Новое бронирование от ${bookingData.name}!\n\nДата: ${bookingData.date}\nВремя: ${bookingData.time}\nАктивность: ${bookingData.activity}\nПожелания: ${bookingData.wishes}\nEmail: ${bookingData.email}`
+            };
+            
+            const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+            return { success: true, response };
+        } catch (err) {
+            console.error('Ошибка отправки EmailJS:', err);
+            return { success: false, error: err.message };
+        }
+    }
+    
+    // Отправка подтверждения девушке
+    async function sendConfirmationToGirl(bookingData) {
+        if (!USE_EMAILJS) {
+            console.log('ДЕМО-РЕЖИМ: Отправка подтверждения на', bookingData.email);
+            return { success: true, mock: true };
+        }
+        
+        try {
+            const templateParams = {
+                to_email: bookingData.email,
+                to_name: bookingData.name,
+                booking_date: bookingData.date,
+                booking_time: bookingData.time,
+                activity: bookingData.activity || 'Сюрприз от айтишника',
+                wishes: bookingData.wishes || 'Будет максимально душевно',
+                message: `Привет, ${bookingData.name}! 💖\n\nТы дала шанс айтишнику! 🧑‍💻\n\nСвидание состоится ${bookingData.date} в ${bookingData.time}.\n\nЧем займёмся: ${bookingData.activity || '✨ я придумаю что-то особенное ✨'}\nТвои пожелания: ${bookingData.wishes || 'учту всё, обещаю!'}\n\nЖду с нетерпением! Приготовлю сюрприз. ❤️\n\nP.S. Wi-Fi и пароль от Netflix уже настроил 😄`
+            };
+            
+            const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+            return { success: true, response };
+        } catch (err) {
+            console.error('Ошибка отправки подтверждения:', err);
+            return { success: false, error: err.message };
+        }
+    }
+    
+    function loadEmailJS() {
+        return new Promise((resolve, reject) => {
+            if (window.emailjs) {
+                resolve();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+            script.onload = () => {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+                resolve();
+            };
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+    
+    // Обработка формы
+    const form = document.getElementById('dateForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultMsgDiv = document.getElementById('resultMsg');
+    
+    // Триггер для загрузки слотов при старте
+    setTimeout(() => {
+        const changeEvent = new Event('change');
+        datePicker.dispatchEvent(changeEvent);
+    }, 100);
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('girlName').value.trim() || 'Veronica';
+        const date = datePicker.value;
+        const time = timeSelect.value;
+        const activity = document.getElementById('activity').value.trim();
+        const wishes = document.getElementById('wishes').value.trim();
+        const email = document.getElementById('girlEmail').value.trim();
+        
+        if (!date) {
+            showResult('Выбери дату свидания 🗓️', 'error');
+            return;
+        }
+        if (!time) {
+            showResult('Выбери время встречи ⏰', 'error');
+            return;
+        }
+        if (!email) {
+            showResult('Напиши свой email, чтобы я прислал подтверждение 📧', 'error');
+            return;
+        }
+        
+        const bookingData = {
+            name: name,
+            date: date,
+            time: time,
+            activity: activity,
+            wishes: wishes,
+            email: email,
+            timestamp: new Date().toISOString()
+        };
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="loading"></span> Бронируем дату и отправляем уведомление...';
+        
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Отправляем уведомление тебе на Gmail
+        const notifyResult = await sendNotificationToMe(bookingData);
+        
+        // Отправляем подтверждение Veronica
+        const confirmResult = await sendConfirmationToGirl(bookingData);
+        
+        if ((notifyResult.success || notifyResult.mock) && (confirmResult.success || confirmResult.mock)) {
+            // Сохраняем в localStorage для истории
+            saveToHistory(bookingData);
+            
+            let message = `
+                ✨ <strong>${name}, ты дала шанс айтишнику!</strong> ✨<br><br>
+                📅 Свидание назначено на <strong>${date} в ${time}</strong><br>
+                🎯 Мы займёмся: ${activity || '🌍 сюрпризом (айтишник что-то придумает)'}<br>
+                💝 Учту пожелания: ${wishes || 'сделаю максимально душевно'}<br><br>
+                📧 Подтверждение отправлено на ${email}<br>
+            `;
+            
+            if (!USE_EMAILJS) {
+                message += `<br><span style="color: #ff6b6b;">⚠️ ДЕМО-РЕЖИМ: EmailJS не настроен. Чтобы отправлять реальные письма, зарегистрируйся на emailjs.com и вставь свои ID в код.</span><br><br>
+                📋 Данные для ручного копирования:<br>
+                👤 Имя: ${name}<br>
+                📅 Дата: ${date} ${time}<br>
+                🎯 Активность: ${activity || '-'}<br>
+                💝 Пожелания: ${wishes || '-'}<br>
+                📧 Email девушки: ${email}<br>
+                <button onclick="copyToClipboard()" style="margin-top:10px; padding:8px 16px; background:#8b5cf6; color:white; border:none; border-radius:12px; cursor:pointer;">📋 Скопировать все данные</button>`;
+            } else {
+                message += `<br>🎉 Я получил уведомление на почту! Жди меня в назначенное время ❤️<br>
+                <small>P.S. Заодно настрою тебе Wi-Fi и VPN ☕</small>`;
+            }
+            
+            showResult(message, 'success');
+            
+            // Очищаем только activity и wishes, остальное оставляем
+            document.getElementById('activity').value = '';
+            document.getElementById('wishes').value = '';
+        } else {
+            showResult(`😔 Ошибка бронирования. Попробуй ещё раз или напиши мне в Telegram.`, 'error');
+        }
+        
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '💾 ЗАБРОНИРОВАТЬ ДАТУ →';
+    });
+    
+    function showResult(message, type) {
+        resultMsgDiv.innerHTML = message;
+        resultMsgDiv.classList.add('show');
+        resultMsgDiv.classList.remove('error');
+        if (type === 'error') resultMsgDiv.classList.add('error');
+        
+        setTimeout(() => {
+            resultMsgDiv.classList.remove('show');
+        }, 12000);
+    }
+    
+    function saveToHistory(booking) {
+        let history = JSON.parse(localStorage.getItem('dateHistory') || '[]');
+        history.push(booking);
+        localStorage.setItem('dateHistory', JSON.stringify(history));
+    }
+    
+    window.copyToClipboard = function() {
+        const data = {
+            name: document.getElementById('girlName').value,
+            date: datePicker.value,
+            time: timeSelect.value,
+            activity: document.getElementById('activity').value,
+            wishes: document.getElementById('wishes').value,
+            email: document.getElementById('girlEmail').value
+        };
+        const text = JSON.stringify(data, null, 2);
+        navigator.clipboard.writeText(text);
+        alert('✅ Данные скопированы! Можешь отправить их себе на почту вручную.');
+    };
+</script>
+</body>
+</html>
