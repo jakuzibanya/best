@@ -68,7 +68,7 @@
         }
         
         .gallery-card:hover .gallery-img {
-            transform: scale(1.12);
+            transform: scale(1.08);
         }
     </style>
 </head>
@@ -175,14 +175,14 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- GALLERY - Now 2 images per row -->
     <section id="gallery" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="heading text-6xl font-bold">Галерея</h2>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 gap-8">
                 <div class="gallery-card rounded-3xl overflow-hidden relative">
                     <img src="https://i.postimg.cc/B6RSrs6L/photo-2026-05-30-00-27-42.jpg" 
                          class="gallery-img w-full h-full object-cover" alt="Баня снаружи">
@@ -195,7 +195,7 @@
                     <img src="https://i.postimg.cc/15bDBqX2/image-1.jpg" 
                          class="gallery-img w-full h-full object-cover" alt="Баня внутри">
                 </div>
-                <div class="gallery-card rounded-3xl overflow-hidden relative lg:col-span-2">
+                <div class="gallery-card rounded-3xl overflow-hidden relative">
                     <img src="https://i.postimg.cc/05WY63sj/Screenshot-1.png" 
                          class="gallery-img w-full h-full object-cover" alt="Отзывы">
                 </div>
@@ -203,9 +203,9 @@
 
             <div class="text-center mt-12">
                 <a href="https://www.kufar.by/item/1066503063" target="_blank"
-                   class="inline-flex items-center gap-3 text-amber-400 hover:text-amber-300 transition">
+                   class="inline-flex items-center gap-3 text-amber-400 hover:text-amber-300 transition text-lg">
                     <i class="fa-solid fa-star"></i>
-                    <span class="text-lg font-medium">Посмотреть отзывы на Kufar.by →</span>
+                    <span class="font-medium">Посмотреть отзывы на Kufar.by →</span>
                 </a>
             </div>
         </div>
@@ -217,21 +217,22 @@
             <h2 class="heading text-6xl font-bold mb-8">Готовы к отдыху?</h2>
             <p class="text-2xl text-gray-400 mb-16">Свяжитесь с нами прямо сейчас</p>
             
-            <div class="glass rounded-3xl p-12 md:p-16">
-                <div class="space-y-10 md:space-y-12">
-                    <a href="tel:+375296481985" class="block text-3xl md:text-4xl font-medium hover:text-amber-400 transition flex items-center justify-center gap-6">
-                        <i class="fa-solid fa-phone text-5xl"></i>
+            <div class="glass rounded-3xl p-10 md:p-16">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="tel:+375296481985" 
+                       class="flex items-center justify-center gap-4 text-2xl font-medium hover:text-amber-400 transition py-6 rounded-2xl border border-white/10 hover:border-amber-400">
+                        <i class="fa-solid fa-phone text-4xl"></i>
                         +375 (29) 648-19-85
                     </a>
                     
                     <a href="https://t.me/ULADZIMIR1431" target="_blank" 
-                       class="block text-3xl md:text-4xl font-medium hover:text-sky-400 transition flex items-center justify-center gap-6 bg-white/5 hover:bg-white/10 py-6 rounded-2xl">
-                        <i class="fa-brands fa-telegram text-5xl"></i>
-                        <span>@ULADZIMIR1431</span>
+                       class="flex items-center justify-center gap-4 text-2xl font-medium hover:text-sky-400 transition py-6 rounded-2xl border border-white/10 hover:border-sky-400 bg-white/5">
+                        <i class="fa-brands fa-telegram text-4xl"></i>
+                        <span class="text-center">@ULADZIMIR1431</span>
                     </a>
                 </div>
                 
-                <div class="mt-16 flex items-center justify-center gap-4 text-gray-400 text-base">
+                <div class="mt-16 flex items-center justify-center gap-4 text-gray-400">
                     <i class="fa-solid fa-location-dot"></i>
                     <span>а/г Ждановичи, ул. Высокая — 1 км от МКАД</span>
                 </div>
