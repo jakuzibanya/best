@@ -8,184 +8,96 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: #0a0a0a;
             color: #ffffff;
         }
-        
+       
         .font-serif-alt {
             font-family: 'Cormorant Garamond', serif;
         }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
+       
         .glass-premium {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 2rem;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
-        
+       
         .glass-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        
+       
         .glass-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: rgba(251, 146, 60, 0.6);
-            box-shadow: 0 30px 50px rgba(0,0,0,0.5);
-            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            transform: translateY(-12px);
+            border-color: rgba(251, 146, 60, 0.5);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
         }
-        
-        /* Hero section - dark gradient background */
+       
         .hero-premium {
-            background: linear-gradient(135deg, #0a0505 0%, #1a0a0a 50%, #0a0808 100%);
+            background: linear-gradient(135deg, #0a0505 0%, #1a0a0a 100%);
             position: relative;
+            overflow: hidden;
         }
-        
+       
         .hero-premium::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(251,146,60,0.12), transparent);
-            pointer-events: none;
+            inset: 0;
+            background: radial-gradient(circle at 40% 30%, rgba(251,146,60,0.15), transparent 70%);
         }
-        
+       
         .gradient-text {
-            background: linear-gradient(135deg, #fb923c, #fbbf24, #f59e0b);
+            background: linear-gradient(90deg, #fb923c, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #fb923c, #f59e0b);
-            border-radius: 10px;
-        }
-        
+       
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-        
+       
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
+       
         .btn-primary {
             background: linear-gradient(135deg, #fb923c, #f59e0b);
-            color: #000000;
+            color: #000;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
-        
+       
         .btn-primary:hover {
-            background: linear-gradient(135deg, #f59e0b, #fb923c);
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(251, 146, 60, 0.4);
+            box-shadow: 0 15px 35px rgba(251, 146, 60, 0.5);
         }
-        
-        .btn-secondary {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.4);
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(251, 146, 60, 0.6);
-        }
-        
-        .feature-badge {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-        }
-        
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .feature-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: #e5e5e5;
-        }
-        .feature-list li i {
-            color: #fb923c;
-            font-size: 1.25rem;
-            min-width: 1.5rem;
-        }
-        
+       
         .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: none;
-            transform: none;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .gallery-card {
-            overflow: hidden;
+       
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.08);
         }
-        
-        .gallery-card img {
-            transition: none;
-            transform: none;
-        }
-        
-        .text-white-high {
-            color: #ffffff;
-        }
-        
-        .text-gray-light {
-            color: #d1d5db;
-        }
-        
-        /* Top info image styling */
+       
         .info-image {
-            border-radius: 2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .info-image:hover {
-            transform: scale(1.02);
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
     </style>
 </head>
@@ -193,192 +105,161 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
-        <div class="glass-premium mx-4 md:mx-8 mt-4 px-6 py-3">
+        <div class="glass-premium mx-4 md:mx-8 mt-4 px-6 py-4">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center text-2xl">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
                         🔥
                     </div>
                     <div>
-                        <h1 class="font-serif-alt text-2xl font-bold tracking-tight text-white">ТЁПЛАЯ БАНЯ</h1>
-                        <p class="text-xs text-orange-300">Премиум отдых</p>
+                        <h1 class="font-serif-alt text-2xl font-bold tracking-tight">ТЁПЛАЯ БАНЯ</h1>
+                        <p class="text-xs text-orange-300 -mt-0.5">Премиум уровень</p>
                     </div>
                 </div>
-                
-                <div class="hidden md:flex gap-8">
-                    <a href="#home" class="text-white hover:text-orange-400 transition">Главная</a>
-                    <a href="#about" class="text-white hover:text-orange-400 transition">О нас</a>
-                    <a href="#services" class="text-white hover:text-orange-400 transition">Услуги</a>
-                    <a href="#gallery" class="text-white hover:text-orange-400 transition">Галерея</a>
-                    <a href="#booking" class="text-white hover:text-orange-400 transition">Контакты</a>
+               
+                <div class="hidden md:flex gap-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-orange-400 transition">Главная</a>
+                    <a href="#about" class="hover:text-orange-400 transition">О бане</a>
+                    <a href="#services" class="hover:text-orange-400 transition">Удобства</a>
+                    <a href="#gallery" class="hover:text-orange-400 transition">Галерея</a>
+                    <a href="#booking" class="hover:text-orange-400 transition">Контакты</a>
                 </div>
-                
-                <a href="#booking" class="bg-gradient-to-r from-orange-500 to-amber-600 px-6 py-2 rounded-full font-semibold text-black hover:shadow-lg transition">
+               
+                <a href="#booking" class="bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-orange-400 transition">
                     +375 (29) 648-19-85
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section - NO IMAGE -->
-    <section id="home" class="hero-premium min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute inset-0 opacity-40">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full filter blur-3xl animate-float"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-amber-600 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-400 rounded-full filter blur-3xl opacity-20 animate-float" style="animation-delay: 4s;"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4">
-            <div class="inline-block mb-6">
-                <span class="bg-black/50 backdrop-blur px-6 py-2 rounded-full text-sm border border-white/20 text-white">
-                    <i class="fas fa-star text-orange-400"></i> Премиум аренда посуточно
-                </span>
+    <!-- Hero -->
+    <section id="home" class="hero-premium min-h-screen flex items-center justify-center relative">
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md px-6 py-2 rounded-full mb-8 border border-white/10">
+                <span class="text-orange-400">✦</span>
+                <span class="text-sm uppercase tracking-widest">Премиум аренда посуточно</span>
             </div>
-            
-            <h1 class="font-serif-alt text-6xl md:text-8xl font-bold mb-4 text-white">
-                АРЕНДА БАНИ<br>
-                <span class="gradient-text">С ДЖАКУЗИ & PS4</span>
+           
+            <h1 class="font-serif-alt text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6">
+                БАНЯ С ДЖАКУЗИ<br>
+                <span class="gradient-text">&amp; PLAYSTATION</span>
             </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto">
-                Отличный вариант для компании друзей или семейного отдыха!
+           
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10">
+                Идеальное место для компании друзей или семейного отдыха в 1 км от МКАД
             </p>
-            
-            <div class="flex flex-wrap gap-4 justify-center mb-12">
-                <a href="#booking" class="btn-primary px-8 py-4 rounded-full text-lg flex items-center gap-2">
-                    🔥 Забронировать сейчас
+           
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#booking" class="btn-primary px-10 py-5 rounded-2xl text-lg flex items-center justify-center gap-3">
+                    🔥 Забронировать
                 </a>
-                <a href="#gallery" class="btn-secondary px-8 py-4 rounded-full text-lg flex items-center gap-2">
-                    📸 Смотреть галерею
+                <a href="#gallery" class="border border-white/30 hover:border-white/60 px-10 py-5 rounded-2xl text-lg transition">
+                    Смотреть фото
                 </a>
-            </div>
-            
-            <div class="flex flex-wrap gap-4 justify-center mb-6">
-                <div class="feature-badge px-5 py-2 rounded-full text-sm"><i class="fas fa-hot-tub text-orange-400 mr-2"></i> Джакузи 2 местное</div>
-                <div class="feature-badge px-5 py-2 rounded-full text-sm"><i class="fab fa-playstation text-orange-400 mr-2"></i> PlayStation 4</div>
-                <div class="feature-badge px-5 py-2 rounded-full text-sm"><i class="fas fa-fire text-orange-400 mr-2"></i> Дровяная баня</div>
-                <div class="feature-badge px-5 py-2 rounded-full text-sm"><i class="fas fa-drumstick-bite text-orange-400 mr-2"></i> Мангал с дровами</div>
-            </div>
-            
-            <div class="flex flex-wrap gap-6 justify-center text-sm">
-                <div class="feature-badge px-5 py-2 rounded-full"><i class="fas fa-clock text-orange-400 mr-2"></i> Заезд: 14:00</div>
-                <div class="feature-badge px-5 py-2 rounded-full"><i class="fas fa-clock text-orange-400 mr-2"></i> Выезд: 12:00</div>
             </div>
         </div>
-        
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-2xl text-white/60"></i>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-3xl text-white/50"></i>
         </div>
     </section>
 
-    <!-- About Section with Image ABOVE the content -->
-    <section id="about" class="py-24 px-4">
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 bg-black">
         <div class="max-w-6xl mx-auto">
-            <!-- IMAGE DISPLAYED UPPER / ABOVE the heading -->
-            <div class="reveal mb-12">
-                <div class="rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="https://i.postimg.cc/k6FD5h41/image.jpg" 
-                         alt="Баня с джакузи и зоной отдыха" 
+            <div class="reveal mb-16">
+                <div class="rounded-3xl overflow-hidden">
+                    <img src="https://freeimage.host/i/C3J7pgj" 
+                         alt="Баня с джакузи" 
                          class="info-image w-full h-auto object-cover">
                 </div>
             </div>
-            
-            <!-- Then the heading and description below -->
-            <div class="reveal text-center mb-8">
-                <span class="text-orange-400 text-sm uppercase tracking-wider font-semibold">Идеальное место для отдыха</span>
-                <h2 class="font-serif-alt text-5xl font-bold mt-4 text-white">Всё для вашего <span class="gradient-text">комфорта</span></h2>
+           
+            <div class="text-center mb-12 reveal">
+                <span class="uppercase text-orange-400 tracking-widest text-sm font-medium">Настоящий комфорт</span>
+                <h2 class="font-serif-alt text-5xl md:text-6xl font-bold mt-4">Всё для вашего отдыха</h2>
             </div>
-            
-            <div class="grid md:grid-cols-1 max-w-4xl mx-auto">
-                <div class="reveal">
-                    <ul class="feature-list text-base leading-relaxed space-y-4">
-                        <li><i class="fas fa-check-circle"></i> Производится <strong class="text-orange-300">дезинфекция перед каждым посещением!</strong></li>
-                        <li><i class="fas fa-fire"></i> Просторная баня с настоящей дровяной печью — дров для растопки в избытке;</li>
-                        <li><i class="fas fa-hot-tub"></i> Большое двухместное джакузи с гидромассажем, красивой подсветкой и встроенным радио. Управление с удобного пульта; Есть шампунь для создания большого количества пены.</li>
-                        <li><i class="fas fa-couch"></i> Комфортная зона отдыха.</li>
-                        <li><i class="fas fa-drumstick-bite"></i> Мангал и оборудованная мангальная зона для вкусного шашлыка;</li>
-                        <li><i class="fas fa-utensils"></i> Холодильник + микроволновая печь;</li>
-                        <li><i class="fab fa-playstation"></i> PlayStation 4 с огромной библиотекой игр и двумя джойстиками — играйте сколько угодно!;</li>
-                        <li><i class="fas fa-chess-board"></i> Большой выбор настольных игр для весёлой компании.</li>
-                    </ul>
-                </div>
+           
+            <div class="max-w-3xl mx-auto reveal">
+                <ul class="space-y-6 text-lg text-gray-200">
+                    <li class="flex gap-4"><i class="fas fa-check text-orange-400 mt-1"></i> Полная дезинфекция перед каждым гостем</li>
+                    <li class="flex gap-4"><i class="fas fa-fire text-orange-400 mt-1"></i> Дровяная баня с настоящей печью и безлимитными дровами</li>
+                    <li class="flex gap-4"><i class="fas fa-hot-tub text-orange-400 mt-1"></i> Двухместное джакузи с гидромассажем, подсветкой и радио</li>
+                    <li class="flex gap-4"><i class="fas fa-drumstick-bite text-orange-400 mt-1"></i> Мангал и оборудованная зона для шашлыка</li>
+                    <li class="flex gap-4"><i class="fab fa-playstation text-orange-400 mt-1"></i> PlayStation 4 с играми и два джойстика</li>
+                    <li class="flex gap-4"><i class="fas fa-chess-board text-orange-400 mt-1"></i> Большой выбор настольных игр</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 px-4 bg-gradient-to-b from-black/30 to-transparent">
+    <!-- Services -->
+    <section id="services" class="py-24 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <span class="text-orange-400 text-sm uppercase tracking-wider font-semibold">Наши преимущества</span>
-                <h2 class="font-serif-alt text-5xl font-bold mt-4 text-white">Что вас <span class="gradient-text">ждёт</span></h2>
+                <h2 class="font-serif-alt text-5xl font-bold">Что вас ждёт</h2>
             </div>
-            
+           
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-3xl p-8 text-center reveal">
-                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500/20 to-amber-600/20 rounded-2xl flex items-center justify-center text-5xl mx-auto mb-6">🪵</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Дровяная баня</h3>
-                    <p class="text-gray-300">Настоящая печь, мягкий пар и аромат древесины. Дрова в избытке — растапливайте сколько угодно!</p>
+                <div class="glass-card rounded-3xl p-10 text-center reveal">
+                    <div class="text-6xl mb-6">🪵</div>
+                    <h3 class="text-2xl font-bold mb-3">Дровяная баня</h3>
+                    <p class="text-gray-400">Настоящая печь, густой пар и тёплая атмосфера</p>
                 </div>
-                
-                <div class="glass-card rounded-3xl p-8 text-center reveal">
-                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500/20 to-amber-600/20 rounded-2xl flex items-center justify-center text-5xl mx-auto mb-6">🛁</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Джакузи с гидромассажем</h3>
-                    <p class="text-gray-300">Большое двухместное джакузи, подсветка, встроенное радио. Шампунь для пенной вечеринки в подарок!</p>
+                <div class="glass-card rounded-3xl p-10 text-center reveal">
+                    <div class="text-6xl mb-6">🛁</div>
+                    <h3 class="text-2xl font-bold mb-3">Джакузи</h3>
+                    <p class="text-gray-400">Гидромассаж, подсветка, радио и пена</p>
                 </div>
-                
-                <div class="glass-card rounded-3xl p-8 text-center reveal">
-                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500/20 to-amber-600/20 rounded-2xl flex items-center justify-center text-5xl mx-auto mb-6">🎮</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">PlayStation & Игры</h3>
-                    <p class="text-gray-300">PS4 с огромной библиотекой игр, два джойстика, а также большой выбор настольных игр для весёлой компании.</p>
+                <div class="glass-card rounded-3xl p-10 text-center reveal">
+                    <div class="text-6xl mb-6">🎮</div>
+                    <h3 class="text-2xl font-bold mb-3">Развлечения</h3>
+                    <p class="text-gray-400">PS4, настольные игры и мангал</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-24 px-4">
+    <!-- Gallery -->
+    <section id="gallery" class="py-24 px-4 bg-black/50">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <span class="text-orange-400 text-sm uppercase tracking-wider font-semibold">Фотогалерея</span>
-                <h2 class="font-serif-alt text-5xl font-bold mt-4 text-white">Взгляд <span class="gradient-text">изнутри</span></h2>
+                <h2 class="font-serif-alt text-5xl font-bold">Галерея</h2>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
+           
+            <div class="grid md:grid-cols-2 gap-8">
                 <div class="glass-card rounded-3xl overflow-hidden gallery-card reveal">
-                    <img src="https://i.postimg.cc/GtYyNXb5/photo-2026-05-30-00-27-42.jpg" alt="Баня снаружи и территория" class="gallery-img w-full h-96 object-cover">
-                    <div class="p-4 text-center text-white">🏠 Уютная территория с мангальной зоной</div>
+                    <img src="https://freeimage.host/i/C3J7m0b" alt="Баня снаружи" class="gallery-img w-full h-96 object-cover">
                 </div>
                 <div class="glass-card rounded-3xl overflow-hidden gallery-card reveal">
-                    <img src="https://i.postimg.cc/Qtv702r3/photo-2026-05-30-00-27-50.jpg" alt="Интерьер бани с джакузи" class="gallery-img w-full h-96 object-cover">
-                    <div class="p-4 text-center text-white">🛁 Просторное джакузи и зона отдыха</div>
+                    <img src="https://freeimage.host/i/C3J7pgj" alt="Интерьер с джакузи" class="gallery-img w-full h-96 object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
+    <!-- Booking / Contacts -->
     <section id="booking" class="py-24 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="glass-premium p-8 md:p-12 text-center reveal">
-                <h2 class="font-serif-alt text-5xl font-bold mb-4 text-white">Забронируйте <span class="gradient-text">прямо сейчас</span></h2>
-                <p class="text-gray-300 text-lg mb-8">Готовы к незабываемому отдыху? Свяжитесь с нами любым удобным способом!</p>
-                
-                <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
-                    <a href="tel:+375296481985" class="btn-primary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
+            <div class="glass-premium p-10 md:p-16 rounded-3xl text-center reveal">
+                <h2 class="font-serif-alt text-5xl font-bold mb-6">Забронируйте отдых</h2>
+                <p class="text-gray-300 mb-10">Готовы к незабываемому времяпровождению?</p>
+               
+                <div class="flex flex-col md:flex-row gap-4 justify-center mb-10">
+                    <a href="tel:+375296481985" class="btn-primary px-10 py-5 rounded-2xl text-xl flex items-center justify-center gap-3">
                         <i class="fas fa-phone"></i> +375 (29) 648-19-85
                     </a>
-                    <a href="https://t.me/ULADZIMIR1431" target="_blank" class="btn-secondary px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2">
-                        <i class="fab fa-telegram text-sky-400 text-xl"></i> Написать в Telegram
+                    <a href="https://t.me/ULADZIMIR1431" target="_blank" class="border border-white/30 hover:border-orange-400 px-10 py-5 rounded-2xl text-xl flex items-center justify-center gap-3 transition">
+                        <i class="fab fa-telegram"></i> @ULADZIMIR1431
                     </a>
                 </div>
-                
-                <div class="flex flex-wrap gap-6 justify-center text-sm">
-                    <div class="text-gray-300"><i class="fas fa-clock text-orange-400 mr-2"></i> Работаем 24/7</div>
-                    <div class="text-gray-300"><i class="fas fa-map-marker-alt text-orange-400 mr-2"></i> а/г Ждановичи, ул. Высокая, всего 1 км от МКАД</div>
-                    <div class="text-gray-300"><i class="fas fa-wifi text-orange-400 mr-2"></i> Бесплатный Wi-Fi</div>
-                    <div class="text-gray-300"><i class="fas fa-car text-orange-400 mr-2"></i> Парковка</div>
+               
+                <div class="flex justify-center items-center gap-8 text-sm text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-orange-400"></i>
+                        <span>а/г Ждановичи, ул. Высокая</span>
+                    </div>
+                    <div>1 км от МКАД</div>
                 </div>
             </div>
         </div>
@@ -387,52 +268,38 @@
     <!-- Footer -->
     <footer class="py-12 border-t border-white/10 text-center">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-center gap-8 mb-6">
-                <i class="fab fa-instagram text-2xl text-gray-400 hover:text-orange-400 transition cursor-pointer"></i>
-                <i class="fab fa-telegram text-2xl text-gray-400 hover:text-orange-400 transition cursor-pointer"></i>
-                <i class="fab fa-vk text-2xl text-gray-400 hover:text-orange-400 transition cursor-pointer"></i>
-            </div>
-            <p class="text-gray-400">© 2026 Тёплая Баня | Премиум аренда с джакузи и PlayStation</p>
-            <p class="text-xs text-gray-500 mt-2">🌿 Отдых, который вы запомните</p>
+            <p class="text-gray-400">© 2026 Тёплая Баня • Премиум отдых рядом с Минском</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
+        // Navbar effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-black/90', 'backdrop-blur-xl');
-                navbar.classList.remove('glass-premium');
+            if (window.scrollY > 80) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
             } else {
-                navbar.classList.remove('bg-black/90', 'backdrop-blur-xl');
-                navbar.classList.add('glass-premium');
+                navbar.style.background = '';
             }
         });
-        
-        // Reveal animations on scroll
+
+        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.1 });
-        
-        reveals.forEach(reveal => revealObserver.observe(reveal));
-        
-        // Smooth scroll for anchor links
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== "#" && href !== "#home") {
+                if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
-                    const element = document.querySelector(href);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
